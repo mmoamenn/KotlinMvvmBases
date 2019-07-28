@@ -1,0 +1,87 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion rootProject.ext.complieSDK
+    buildToolsVersion rootProject.ext.buildTool
+    defaultConfig {
+        applicationId rootProject.ext.appID
+        minSdkVersion rootProject.ext.minSDK
+        targetSdkVersion rootProject.ext.maxSDK
+        versionCode rootProject.ext.versionCode
+        versionName rootProject.ext.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+
+        debug{
+            applicationIdSuffix ".debug"
+            debuggable true
+        }
+    }
+
+    flavorDimensions "default"
+
+    productFlavors{
+
+        production{
+            buildConfigField 'String', 'BASE_URL', '"http://qa1.vodafone.com.eg/mobile-app/"'
+        }
+
+        staging{
+            buildConfigField 'String', 'BASE_URL', '"http://qa1.vodafone.com.eg/mobile-app/"'
+        }
+
+        dev{
+            buildConfigField 'String', 'BASE_URL', '"http://qa1.vodafone.com.eg/mobile-app/"'
+        }
+
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation rootProject.ext.kotliJDK
+    implementation rootProject.ext.androidxAppCompat
+    implementation rootProject.ext.kotlinKTX
+    implementation rootProject.ext.androidxConstraintLayout
+    implementation rootProject.ext.androidMaterial
+    testImplementation rootProject.ext.junit
+    androidTestImplementation rootProject.ext.androdxRunner
+    androidTestImplementation rootProject.ext.androidxespresso
+    implementation rootProject.ext.picasso
+    implementation rootProject.ext.gson
+    implementation rootProject.ext.retrofitMain
+    implementation rootProject.ext.retrofitRXAdapter
+    implementation rootProject.ext.retrofitGson
+    implementation rootProject.ext.okhttpInterceptor
+    implementation rootProject.ext.okhttpAuthenticator
+    implementation rootProject.ext.googlePlayServices
+    implementation rootProject.ext.rxandroid
+    implementation rootProject.ext.rxjava
+    implementation rootProject.ext.rxBinding
+    implementation rootProject.ext.roomRuntime
+    kapt rootProject.ext.roomComplier
+    implementation rootProject.ext.roomKTX
+    implementation rootProject.ext.roomJava
+    implementation rootProject.ext.roomDebuger
+    implementation rootProject.ext.multiDex
+    implementation rootProject.ext.lifecycleExtentions
+    kapt rootProject.ext.lifecycleComplier
+    implementation rootProject.ext.lifecycleReactiveStreams
+    implementation rootProject.ext.lifecycleCommon
+    testImplementation rootProject.ext.mockitoCore
+    testImplementation rootProject.ext.mockitoInline
+    testImplementation rootProject.ext.mockitoKotlin
+}
