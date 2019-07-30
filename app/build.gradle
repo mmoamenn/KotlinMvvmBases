@@ -84,4 +84,5 @@ dependencies {
     testImplementation rootProject.ext.mockitoCore
     testImplementation rootProject.ext.mockitoInline
     testImplementation rootProject.ext.mockitoKotlin
+    implementation rootProject.ext.AndroidXPreferences
 }
