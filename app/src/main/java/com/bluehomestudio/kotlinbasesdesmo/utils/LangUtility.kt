@@ -1,18 +1,10 @@
 package com.bluehomestudio.kotlinbasesdesmo.utils
 
-
 import android.app.Activity
-import android.content.pm.ActivityInfo
 import android.content.pm.PackageManager.NameNotFoundException
 import android.content.res.Resources
 import android.os.Build
-
-import java.lang.ref.WeakReference
-import java.lang.reflect.Field
-import kotlin.collections.Map.Entry
-
 import android.content.pm.PackageManager.GET_META_DATA
-import android.os.Build.VERSION_CODES.P
 
 object LangUtility {
 

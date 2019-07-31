@@ -3,7 +3,6 @@ package com.bluehomestudio.kotlinbasesdesmo.base
 import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
-import com.bluehomestudio.kotlinbasesdesmo.R
 import com.bluehomestudio.kotlinbasesdesmo.utils.LocaleManager
 
 open class BaseApp : Application(){

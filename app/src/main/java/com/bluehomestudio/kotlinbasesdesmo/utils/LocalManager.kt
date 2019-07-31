@@ -1,6 +1,5 @@
 package com.bluehomestudio.kotlinbasesdesmo.utils
 
-
 import android.annotation.SuppressLint
 import android.content.Context
 import android.content.SharedPreferences
@@ -11,7 +10,6 @@ import android.os.Build.VERSION_CODES.JELLY_BEAN_MR1
 import android.os.Build.VERSION_CODES.N
 import androidx.preference.PreferenceManager
 import java.util.*
-
 
 class LocaleManager(context: Context) {
 

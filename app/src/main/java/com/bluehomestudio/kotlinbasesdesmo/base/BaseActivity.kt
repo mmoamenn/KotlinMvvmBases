@@ -11,7 +11,6 @@ import com.bluehomestudio.kotlinbasesdesmo.utils.invisible
 import com.bluehomestudio.kotlinbasesdesmo.utils.visible
 import kotlinx.android.synthetic.main.activity_base.*
 
-
 abstract class BaseActivity : AppCompatActivity(){
 
     @LayoutRes abstract fun  getLayout()  : Int

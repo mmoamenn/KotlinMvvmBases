@@ -7,7 +7,6 @@ import android.util.Log
 import com.google.android.gms.location.*
 import com.google.android.gms.location.LocationServices.getFusedLocationProviderClient
 
-
 class LocationProvider(private val activity: Activity, val locationChangeListener: LocationChangeListener) {
 
     lateinit var mLocationRequest: LocationRequest

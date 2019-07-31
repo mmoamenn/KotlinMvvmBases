@@ -85,4 +85,6 @@ dependencies {
     testImplementation rootProject.ext.mockitoInline
     testImplementation rootProject.ext.mockitoKotlin
     implementation rootProject.ext.AndroidXPreferences
+    implementation rootProject.ext.dagger
+    kapt rootProject.ext.daggerProcessor
 }
