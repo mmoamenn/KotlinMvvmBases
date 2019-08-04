@@ -1,5 +1,9 @@
 package com.bluehomestudio.kotlinbasesdesmo.base
 
-open class BaseRepository(){
+import org.koin.core.KoinComponent
+
+
+abstract class BaseRepository: KoinComponent {
+
 
 }

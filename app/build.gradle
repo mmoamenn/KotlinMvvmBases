@@ -18,6 +18,11 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -85,6 +90,9 @@ dependencies {
     testImplementation rootProject.ext.mockitoInline
     testImplementation rootProject.ext.mockitoKotlin
     implementation rootProject.ext.AndroidXPreferences
-    implementation rootProject.ext.dagger
-    kapt rootProject.ext.daggerProcessor
+    implementation rootProject.ext.koinCore
+    implementation rootProject.ext.koinAndroid
+    implementation rootProject.ext.koinViewModel
+
+
 }

@@ -8,6 +8,7 @@ import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
+import android.content.SharedPreferences
 import android.graphics.Point
 import android.os.Bundle
 import android.util.TypedValue
@@ -165,6 +166,10 @@ fun Context.getDate(milliSeconds: Long, dateFormat: String): String {
     calendar.timeInMillis = milliSeconds
     return formatter.format(calendar.getTime())
 }
+
+
+
+
 
 
 
