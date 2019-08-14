@@ -5,7 +5,6 @@ import android.content.Context
 import android.content.res.Configuration
 import com.bluehomestudio.kotlinbasesdesmo.di.AppModule
 import com.bluehomestudio.kotlinbasesdesmo.utils.LocaleManager
-import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 
 open class BaseApp : Application(){
