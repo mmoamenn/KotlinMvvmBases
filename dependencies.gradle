@@ -14,6 +14,7 @@ ext{
     google = "16.0.0"
     koinVersion = "2.0.1"
 
+    mutliDex = "com.android.support:multidex:1.0.3"
     instrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     kotliJDK = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     kotlinKTX = "androidx.core:core-ktx:$androidx"

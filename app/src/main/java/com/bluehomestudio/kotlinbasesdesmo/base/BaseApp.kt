@@ -3,11 +3,12 @@ package com.bluehomestudio.kotlinbasesdesmo.base
 import android.app.Application
 import android.content.Context
 import android.content.res.Configuration
+import androidx.multidex.MultiDexApplication
 import com.bluehomestudio.kotlinbasesdesmo.di.AppModule
 import com.bluehomestudio.kotlinbasesdesmo.utils.LocaleManager
 import org.koin.core.context.startKoin
 
-open class BaseApp : Application(){
+open class BaseApp : MultiDexApplication(){
 
     companion object {
         lateinit var localeManager: LocaleManager

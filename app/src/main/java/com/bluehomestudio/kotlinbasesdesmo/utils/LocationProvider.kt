@@ -36,7 +36,6 @@ class LocationProvider(private val activity: Activity, val locationChangeListene
                 val latitude = locationResult.lastLocation.latitude
                 val longitude = locationResult.lastLocation.longitude
                 if (latitude != 0.0 && longitude != 0.0) {
-                    Log.d("sadassadasd", "momomomo")
                     locationChangeListener.onLocationChange(
                         latitude,
                         longitude

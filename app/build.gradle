@@ -16,6 +16,7 @@ android {
         versionCode rootProject.ext.versionCode
         versionName rootProject.ext.versionName
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
     }
 
     compileOptions {
@@ -93,6 +94,7 @@ dependencies {
     implementation rootProject.ext.koinCore
     implementation rootProject.ext.koinAndroid
     implementation rootProject.ext.koinViewModel
-
+    implementation rootProject.ext.koinTest
+    implementation rootProject.ext.mutliDex
 
 }
