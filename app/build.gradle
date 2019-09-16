@@ -41,15 +41,15 @@ android {
     productFlavors{
 
         production{
-            buildConfigField 'String', 'BASE_URL', '"http://qa1.vodafone.com.eg/mobile-app/"'
+            buildConfigField 'String', 'BASE_URL', '"http://vodafone.com/"'
         }
 
         staging{
-            buildConfigField 'String', 'BASE_URL', '"http://qa1.vodafone.com.eg/mobile-app/"'
+            buildConfigField 'String', 'BASE_URL', '"http://vodafone.com/"'
         }
 
         dev{
-            buildConfigField 'String', 'BASE_URL', '"http://qa1.vodafone.com.eg/mobile-app/"'
+            buildConfigField 'String', 'BASE_URL', '"http://vodafone.com/"'
         }
 
     }
@@ -57,44 +57,47 @@ android {
 }
 
 dependencies {
+
+    def dependencyPath = rootProject.ext
+
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation rootProject.ext.kotliJDK
-    implementation rootProject.ext.androidxAppCompat
-    implementation rootProject.ext.kotlinKTX
-    implementation rootProject.ext.androidxConstraintLayout
-    implementation rootProject.ext.androidMaterial
-    testImplementation rootProject.ext.junit
-    androidTestImplementation rootProject.ext.androdxRunner
-    androidTestImplementation rootProject.ext.androidxespresso
-    implementation rootProject.ext.picasso
-    implementation rootProject.ext.gson
-    implementation rootProject.ext.retrofitMain
-    implementation rootProject.ext.retrofitRXAdapter
-    implementation rootProject.ext.retrofitGson
-    implementation rootProject.ext.okhttpInterceptor
-    implementation rootProject.ext.okhttpAuthenticator
-    implementation rootProject.ext.googlePlayServices
-    implementation rootProject.ext.rxandroid
-    implementation rootProject.ext.rxjava
-    implementation rootProject.ext.rxBinding
-    implementation rootProject.ext.roomRuntime
-    kapt rootProject.ext.roomComplier
-    implementation rootProject.ext.roomKTX
-    implementation rootProject.ext.roomJava
-    implementation rootProject.ext.roomDebuger
-    implementation rootProject.ext.multiDex
-    implementation rootProject.ext.lifecycleExtentions
-    kapt rootProject.ext.lifecycleComplier
-    implementation rootProject.ext.lifecycleReactiveStreams
-    implementation rootProject.ext.lifecycleCommon
-    testImplementation rootProject.ext.mockitoCore
-    testImplementation rootProject.ext.mockitoInline
-    testImplementation rootProject.ext.mockitoKotlin
-    implementation rootProject.ext.AndroidXPreferences
-    implementation rootProject.ext.koinCore
-    implementation rootProject.ext.koinAndroid
-    implementation rootProject.ext.koinViewModel
-    implementation rootProject.ext.koinTest
-    implementation rootProject.ext.mutliDex
+    implementation dependencyPath.kotliJDK
+    implementation dependencyPath.androidxAppCompat
+    implementation dependencyPath.kotlinKTX
+    implementation dependencyPath.androidxConstraintLayout
+    implementation dependencyPath.androidMaterial
+    testImplementation dependencyPath.junit
+    androidTestImplementation dependencyPath.androdxRunner
+    androidTestImplementation dependencyPath.androidxespresso
+    implementation dependencyPath.picasso
+    implementation dependencyPath.gson
+    implementation dependencyPath.retrofitMain
+    implementation dependencyPath.retrofitRXAdapter
+    implementation dependencyPath.retrofitGson
+    implementation dependencyPath.okhttpInterceptor
+    implementation dependencyPath.okhttpAuthenticator
+    implementation dependencyPath.googlePlayServices
+    implementation dependencyPath.rxandroid
+    implementation dependencyPath.rxjava
+    implementation dependencyPath.rxBinding
+    implementation dependencyPath.roomRuntime
+    kapt dependencyPath.roomComplier
+    implementation dependencyPath.roomKTX
+    implementation dependencyPath.roomJava
+    implementation dependencyPath.roomDebuger
+    implementation dependencyPath.multiDex
+    implementation dependencyPath.lifecycleExtentions
+    kapt dependencyPath.lifecycleComplier
+    implementation dependencyPath.lifecycleReactiveStreams
+    implementation dependencyPath.lifecycleCommon
+    testImplementation dependencyPath.mockitoCore
+    testImplementation dependencyPath.mockitoInline
+    testImplementation dependencyPath.mockitoKotlin
+    implementation dependencyPath.AndroidXPreferences
+    implementation dependencyPath.koinCore
+    implementation dependencyPath.koinAndroid
+    implementation dependencyPath.koinViewModel
+    implementation dependencyPath.koinTest
+    implementation dependencyPath.mutliDex
 
 }
