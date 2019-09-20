@@ -1,9 +1,12 @@
 package com.bluehomestudio.kotlinbasesdesmo.core.di
 
+import androidx.lifecycle.MutableLiveData
 import androidx.preference.PreferenceManager
 import com.bluehomestudio.kotlinbasesdesmo.core.base.BaseApp
+import com.bluehomestudio.kotlinbasesdesmo.data.network.Data
 import com.bluehomestudio.kotlinbasesdesmo.data.network.NetworkManager
 import com.bluehomestudio.kotlinbasesdesmo.data.repository.ForceUpdateRepositoryImpl
+import com.bluehomestudio.kotlinbasesdesmo.domain.model.ForceUpdate
 import com.bluehomestudio.kotlinbasesdesmo.domain.respository.ForceUpdateRepository
 import com.bluehomestudio.kotlinbasesdesmo.domain.usecase.ForceUpdateUseCase
 import com.bluehomestudio.kotlinbasesdesmo.ui.MainViewModel
@@ -18,9 +21,11 @@ val AppModule = module {
 
     single { NetworkManager() }
 
-    single<ForceUpdateRepository> { ForceUpdateRepositoryImpl() }
+    single { ForceUpdateRepositoryImpl() as ForceUpdateRepository }
 
     single { ForceUpdateUseCase() }
+
+    single { MutableLiveData<Data<ForceUpdate>>() }
 
     viewModel { MainViewModel(get ()) }
 

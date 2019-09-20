@@ -8,24 +8,24 @@ import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import org.koin.core.KoinComponent
 
-open class BaseUseCase() : KoinComponent{
+open class BaseUseCase() {
 
     private val disposableList = CompositeDisposable()
 
     private fun <T> loadNetwork(observable: Observable<T>) =
-        observable.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+        observable.subscribeOn(Schedulers.trampoline())
+            .observeOn(Schedulers.trampoline())
 
     private fun loadNetwork(observable: Completable) =
-        observable.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+        observable.subscribeOn(Schedulers.trampoline())
+            .observeOn(Schedulers.trampoline())
 
     fun <T> loadNetwork(observable: Observable<T>, success: (T) -> Unit, error: (Throwable)-> Unit) =
         disposableList.add(loadNetwork(observable).subscribe(success, error))
 
-    fun loadNetwork(completable: Completable, success: () -> Unit, error: (Throwable) -> Unit) {
-        disposableList.add(loadNetwork(completable).subscribe(success, error))
-    }
+//    fun loadNetwork(completable: Completable, success: () -> Unit, error: (Throwable) -> Unit) {
+//        disposableList.add(loadNetwork(completable).subscribe(success, error))
+//    }
 
     fun addDisposable(disposableItem: Disposable){
         disposableList.add(disposableItem)

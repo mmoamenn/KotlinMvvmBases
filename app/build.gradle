@@ -57,9 +57,7 @@ android {
 }
 
 dependencies {
-
     def dependencyPath = rootProject.ext
-
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation dependencyPath.kotliJDK
     implementation dependencyPath.androidxAppCompat
@@ -99,5 +97,6 @@ dependencies {
     implementation dependencyPath.koinViewModel
     implementation dependencyPath.koinTest
     implementation dependencyPath.mutliDex
-
+    testImplementation dependencyPath.kluentAndroid
+    testImplementation 'android.arch.core:core-testing:1.1.1'
 }
