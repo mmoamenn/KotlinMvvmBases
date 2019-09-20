@@ -5,7 +5,6 @@ import com.bluehomestudio.kotlinbasesdesmo.core.base.BaseUseCase
 import com.bluehomestudio.kotlinbasesdesmo.data.network.Data
 import com.bluehomestudio.kotlinbasesdesmo.data.network.DataStatus
 import com.bluehomestudio.kotlinbasesdesmo.data.mapper.toForceUpdate
-import com.bluehomestudio.kotlinbasesdesmo.data.repository.ForceUpdateRepositoryImpl
 import com.bluehomestudio.kotlinbasesdesmo.domain.model.ForceUpdate
 import com.bluehomestudio.kotlinbasesdesmo.domain.respository.ForceUpdateRepository
 import org.koin.core.KoinComponent
@@ -15,7 +14,7 @@ class ForceUpdateUseCase : BaseUseCase() , KoinComponent {
 
     val forceUpdateLiveData : MutableLiveData<Data<ForceUpdate>> by inject()
 
-    var forceUpdateRepository : ForceUpdateRepository  = ForceUpdateRepositoryImpl()
+    val forceUpdateRepository : ForceUpdateRepository  by inject()
 
     fun checkForceUpdate(){
         forceUpdateLiveData.postValue(Data(DataStatus.SUCCESS , null))
