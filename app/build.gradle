@@ -41,15 +41,15 @@ android {
     productFlavors{
 
         production{
-            buildConfigField 'String', 'BASE_URL', '"http://vodafone.com/"'
+            buildConfigField 'String', 'BASE_URL', '"http://google.com/"'
         }
 
         staging{
-            buildConfigField 'String', 'BASE_URL', '"http://vodafone.com/"'
+            buildConfigField 'String', 'BASE_URL', '"http://google.com/"'
         }
 
         dev{
-            buildConfigField 'String', 'BASE_URL', '"http://vodafone.com/"'
+            buildConfigField 'String', 'BASE_URL', '"http://google.com/"'
         }
 
     }
