@@ -1,6 +1,7 @@
 package com.bluehomestudio.kotlinbasesdesmo.domain.usecase
 
 import androidx.lifecycle.MutableLiveData
+import com.bluehomestudio.kotlinbasesdesmo.core.Model.None
 import com.bluehomestudio.kotlinbasesdesmo.core.base.BaseUseCase
 import com.bluehomestudio.kotlinbasesdesmo.data.network.Data
 import com.bluehomestudio.kotlinbasesdesmo.data.network.DataStatus
@@ -11,7 +12,7 @@ import com.bluehomestudio.kotlinbasesdesmo.domain.respository.ForceUpdateReposit
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class ForceUpdateUseCase : BaseUseCase< ForceUpdateResponse , BaseUseCase.NoCache , BaseUseCase.None>() , KoinComponent {
+class ForceUpdateUseCase : BaseUseCase< ForceUpdateResponse , None, None>() , KoinComponent {
 
     val forceUpdateLiveData : MutableLiveData<Data<ForceUpdate>> by inject()
 
