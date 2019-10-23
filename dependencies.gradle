@@ -8,12 +8,14 @@ ext{
     appID = "com.vodafone.spoc"
     targetSDK = 29
     androidx = '1.0.2'
-    retrofit = '2.5.0'
+    retrofit = '2.6.0'
     roomVersion = "2.1.0-beta01"
     archVersion = "1.1.1"
     google = "16.0.0"
     koinVersion = "2.0.1"
     kluent = "1.28"
+    lifecycle_version = "2.1.0"
+
 
     //Core
     mutliDex = "com.android.support:multidex:1.0.3"
@@ -32,6 +34,7 @@ ext{
     roomKTX = "androidx.room:room-ktx:$roomVersion"
     roomJava = "androidx.room:room-rxjava2:$roomVersion"
     roomDebuger = "com.facebook.stetho:stetho:1.5.1"
+    viewModel = "androidx.lifecycle:lifecycle-viewmodel:$lifecycle_version"
     multiDex = "com.android.support:multidex:1.0.3"
     lifecycleExtentions = "android.arch.lifecycle:extensions:$archVersion"
     lifecycleComplier = "android.arch.lifecycle:compiler:$archVersion"

@@ -1,44 +1,56 @@
 package com.bluehomestudio.kotlinbasesdesmo.core.base
 
-import io.reactivex.Completable
-import io.reactivex.Observable
-import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
-import io.reactivex.schedulers.Schedulers
+import kotlinx.coroutines.*
 
-open class BaseUseCase() {
+abstract class BaseUseCase<Type : Any , Cache ,in Params >    {
 
-    private val disposableList = CompositeDisposable()
+    private  var mainJob: Job? = null
 
-    //todo : inject Schedulers to user Schedulers.trampoline() in unite testing
+    abstract suspend fun run(params: Params) : Type
 
-    private fun <T> loadNetwork(observable: Observable<T>) =
-        observable.subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+    abstract fun loading()
 
-    private fun loadNetwork(observable: Completable) =
-        observable.subscribeOn(Schedulers.trampoline())
-            .observeOn(AndroidSchedulers.mainThread())
+    abstract fun onSuccess(result : Type)
 
-    fun <T> loadNetwork(observable: Observable<T>, success: (T) -> Unit, error: (Throwable)-> Unit) =
-        disposableList.add(loadNetwork(observable).subscribe(success, error))
+    abstract fun failed(exception : Exception)
 
-    fun loadNetwork(completable: Completable, success: () -> Unit, error: (Throwable) -> Unit) {
-        disposableList.add(loadNetwork(completable).subscribe(success, error))
+    open suspend fun cache() : Cache {
+        return NoCache() as Cache
     }
 
-    fun addDisposable(disposableItem: Disposable){
-        disposableList.add(disposableItem)
+    open fun onCache(result : Cache){
+
     }
 
-    fun deleteDisposable(disposableItem: Disposable){
-        disposableList.remove(disposableItem)
+    operator fun invoke(params : Params ){
+        mainJob = GlobalScope.launch(Dispatchers.Main) {
+                try {
+                    loading()
+
+                    val cacheJob = withContext(Dispatchers.IO){
+                        cache()
+                    }
+
+                    cacheJob?.run {
+                        onCache(cacheJob)
+                    }
+
+                    val remoteJob = withContext(Dispatchers.IO) {
+                        run(params)
+                    }
+                    onSuccess(remoteJob)
+                }catch (e: Exception){
+                    failed(e)
+                }
+        }
     }
 
-    fun unsubscribe(){
-        disposableList.clear()
+    fun cancel(){
+        mainJob?.cancel()
     }
 
+    class None
+
+    class NoCache
 
 }

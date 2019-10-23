@@ -1,8 +1,8 @@
 package com.bluehomestudio.kotlinbasesdesmo.domain.respository
 
 import com.bluehomestudio.kotlinbasesdesmo.data.response.ForceUpdateResponse
-import io.reactivex.Observable
+import retrofit2.Response
 
 interface ForceUpdateRepository{
-    fun getCheckForceUpdate() : Observable<ForceUpdateResponse>
+    suspend fun  getCheckForceUpdate() : Response<ForceUpdateResponse>
 }

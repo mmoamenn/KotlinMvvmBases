@@ -9,5 +9,4 @@ abstract class BaseRepository: KoinComponent {
 
     val network : NetworkManager by inject()
 
-
 }
