@@ -9,28 +9,26 @@ import com.bluehomestudio.kotlinbasesdesmo.ui.MainViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 
-class MainActivity : BaseActivity(){
+class MainActivity : BaseActivity() {
 
-    override fun getLayout(): Int  = R.layout.activity_empty
+    override fun getLayout(): Int = R.layout.activity_empty
 
-    val viewModel: MainViewModel by viewModel()
+    private val viewModel: MainViewModel by viewModel()
 
     override fun init() {
         observers()
     }
 
-}
-
-private fun MainActivity.observers(){
-
-    viewModel.checkForceUpdate()
-
-    viewModel.forceUpdateLiveData.observe(this , Observer{
-        when (it.status){
-            DataStatus.SUCCESS -> Toast.makeText(this , "SUCCESS" , Toast.LENGTH_LONG).show()
-            DataStatus.ERROR -> Toast.makeText(this , "ERROR" , Toast.LENGTH_LONG).show()
-            DataStatus.LOADING -> Toast.makeText(this , "LOADING" , Toast.LENGTH_LONG).show()
-        }
-    })
+    private fun observers() {
+        viewModel.checkForceUpdate()
+        viewModel.forceUpdateLiveData.observe(this, Observer {
+            when (it.status) {
+                DataStatus.SUCCESS -> Toast.makeText(this, "SUCCESS", Toast.LENGTH_LONG).show()
+                DataStatus.ERROR -> Toast.makeText(this, "ERROR", Toast.LENGTH_LONG).show()
+                DataStatus.LOADING -> Toast.makeText(this, "LOADING", Toast.LENGTH_LONG).show()
+            }
+        })
+    }
 
 }
+

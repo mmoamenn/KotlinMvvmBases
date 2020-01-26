@@ -12,7 +12,6 @@ class MainViewModel(var forceUpdateUseCase : ForceUpdateUseCase )  : BaseViewMod
         forceUpdateUseCase(None())
     }
 
-
     override fun onCleared() {
         super.onCleared()
         forceUpdateUseCase.cancel()

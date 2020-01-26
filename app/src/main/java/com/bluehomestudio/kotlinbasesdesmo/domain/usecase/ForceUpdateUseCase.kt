@@ -12,7 +12,7 @@ import com.bluehomestudio.kotlinbasesdesmo.domain.respository.ForceUpdateReposit
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class ForceUpdateUseCase : BaseUseCase< ForceUpdateResponse , None, None>() , KoinComponent {
+class ForceUpdateUseCase : BaseUseCase< ForceUpdateResponse , None>() , KoinComponent {
 
     val forceUpdateLiveData : MutableLiveData<Data<ForceUpdate>> by inject()
 
@@ -31,7 +31,5 @@ class ForceUpdateUseCase : BaseUseCase< ForceUpdateResponse , None, None>() , Ko
     override fun failed(exception: Exception) {
         forceUpdateLiveData.postValue(Data(DataStatus.ERROR , error = exception))
     }
-
-
 
 }
