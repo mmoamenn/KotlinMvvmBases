@@ -38,24 +38,11 @@ class ForceUpdateUseCaseTest : AutoCloseKoinTest() {
         startKoin {
             modules(AppModule)
         }
-        MockitoAnnotations.initMocks(this)
-        forceUpdateUseCase = ForceUpdateUseCase()
-        forceUpdateUseCase.forceUpdateRepository = forceUpdateRepository
     }
 
     @Test
     fun checkForceUpdate() {
 
-        Mockito.`when`(forceUpdateRepository.getCheckForceUpdate())
-            .thenReturn(Observable.just(ForceUpdateResponse(true , "")))
-
-        val testObserver = TestObserver<ForceUpdateResponse>()
-
-        forceUpdateUseCase.forceUpdateRepository
-            .getCheckForceUpdate()
-            .subscribe(testObserver)
-
-        testObserver.assertNoErrors()
     }
 
 }

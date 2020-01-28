@@ -1,4 +1,4 @@
-package com.bluehomestudio.kotlinbasesdesmo.ui
+package com.bluehomestudio.kotlinbasesdesmo.view.mian
 
 import com.bluehomestudio.kotlinbasesdesmo.core.Model.None
 import com.bluehomestudio.kotlinbasesdesmo.core.base.BaseViewModel

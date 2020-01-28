@@ -5,7 +5,6 @@ import androidx.lifecycle.Observer
 import com.bluehomestudio.kotlinbasesdesmo.R
 import com.bluehomestudio.kotlinbasesdesmo.core.base.BaseActivity
 import com.bluehomestudio.kotlinbasesdesmo.data.network.DataStatus
-import com.bluehomestudio.kotlinbasesdesmo.ui.MainViewModel
 import org.koin.android.viewmodel.ext.android.viewModel
 
 

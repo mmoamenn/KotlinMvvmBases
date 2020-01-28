@@ -41,15 +41,15 @@ android {
     productFlavors{
 
         production{
-            buildConfigField 'String', 'BASE_URL', '"http://google.com/"'
+            buildConfigField 'String', 'BASE_URL', '"https://google.com/"'
         }
 
         staging{
-            buildConfigField 'String', 'BASE_URL', '"http://google.com/"'
+            buildConfigField 'String', 'BASE_URL', '"https://google.com/"'
         }
 
         dev{
-            buildConfigField 'String', 'BASE_URL', '"http://google.com/"'
+            buildConfigField 'String', 'BASE_URL', '"https://google.com/"'
         }
 
     }

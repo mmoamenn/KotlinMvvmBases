@@ -9,7 +9,7 @@ import com.bluehomestudio.kotlinbasesdesmo.data.repository.ForceUpdateRepository
 import com.bluehomestudio.kotlinbasesdesmo.domain.model.ForceUpdate
 import com.bluehomestudio.kotlinbasesdesmo.domain.respository.ForceUpdateRepository
 import com.bluehomestudio.kotlinbasesdesmo.domain.usecase.ForceUpdateUseCase
-import com.bluehomestudio.kotlinbasesdesmo.ui.MainViewModel
+import com.bluehomestudio.kotlinbasesdesmo.view.mian.MainViewModel
 import org.koin.android.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
