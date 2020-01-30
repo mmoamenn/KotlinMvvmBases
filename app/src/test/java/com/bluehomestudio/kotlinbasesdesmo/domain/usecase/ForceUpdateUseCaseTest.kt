@@ -41,7 +41,6 @@ open class ForceUpdateUseCaseTest : AutoCloseKoinTest() {
     @Test
     fun checkForceUpdate() = runBlocking {
 
-
         val resultResponse = ForceUpdateResponse(true, "")
 
         declareMock<ForceUpdateRepository> {
