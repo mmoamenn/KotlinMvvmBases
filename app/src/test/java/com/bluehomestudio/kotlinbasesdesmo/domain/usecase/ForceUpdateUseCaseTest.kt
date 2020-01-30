@@ -33,15 +33,9 @@ open class ForceUpdateUseCaseTest : AutoCloseKoinTest() {
 
     @Before
     fun before() {
-
-        MockitoAnnotations.initMocks(this)
-
         startKoin {
             modules(AppModule)
         }
-
-
-
     }
 
     @Test
