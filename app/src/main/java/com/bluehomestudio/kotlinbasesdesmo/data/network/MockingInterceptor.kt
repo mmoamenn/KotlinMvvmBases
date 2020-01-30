@@ -18,7 +18,7 @@ class MockInterceptor ( var any : Any ) : Interceptor {
                 .addHeader("content-type", "application/json")
                 .build()
         } else {
-            throw IllegalAccessError("Hey man/lady you can not use this interceptor in release :| ")
+            throw IllegalAccessError("Hey you can not use this interceptor in release :| ")
         }
     }
 

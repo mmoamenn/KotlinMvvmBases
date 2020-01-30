@@ -15,7 +15,10 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.runBlocking
 import org.junit.rules.TestRule
 import org.junit.Rule
+import org.koin.dsl.koinApplication
 import org.koin.test.AutoCloseKoinTest
+import org.koin.test.inject
+import org.koin.test.mock.declareMock
 import org.mockito.Mock
 import org.mockito.MockitoAnnotations
 
@@ -26,10 +29,7 @@ open class ForceUpdateUseCaseTest : AutoCloseKoinTest() {
     @JvmField
     var rule: TestRule = InstantTaskExecutorRule()
 
-    @Mock
-    private lateinit var forceUpdateRepository: ForceUpdateRepository
-
-    private lateinit var forceUpdateUseCase: ForceUpdateUseCase
+    private val forceUpdateUseCase: ForceUpdateUseCase by inject()
 
     @Before
     fun before() {
@@ -41,27 +41,26 @@ open class ForceUpdateUseCaseTest : AutoCloseKoinTest() {
         }
 
 
+
     }
 
     @Test
     fun checkForceUpdate() = runBlocking {
 
-        forceUpdateUseCase = ForceUpdateUseCase()
 
         val resultResponse = ForceUpdateResponse(true, "")
 
-        given { runBlocking { forceUpdateRepository.getCheckForceUpdate() } }.willReturn(
-            resultResponse
-        )
+        declareMock<ForceUpdateRepository> {
+            given(runBlocking { this@declareMock.getCheckForceUpdate() }).willReturn(resultResponse)
+        }
 
         forceUpdateUseCase(None())
 
         val result = forceUpdateUseCase.forceUpdateLiveData
-        result.observeForever {  }
+        result.observeForever { }
+        delay(100)
 
-        delay(500)
-
-        assert(!result.value!!.data!!.IsForceUpdate)
+        assert(result.value!!.data!!.IsForceUpdate)
     }
 
 }
