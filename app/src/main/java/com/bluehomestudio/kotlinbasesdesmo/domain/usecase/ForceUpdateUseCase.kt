@@ -12,13 +12,13 @@ import com.bluehomestudio.kotlinbasesdesmo.domain.respository.ForceUpdateReposit
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class ForceUpdateUseCase : BaseUseCase< ForceUpdateResponse , None>() , KoinComponent {
+open class ForceUpdateUseCase : BaseUseCase< ForceUpdateResponse , None>() , KoinComponent {
 
     val forceUpdateLiveData : MutableLiveData<Data<ForceUpdate>> by inject()
 
     val forceUpdateRepository : ForceUpdateRepository  by inject()
 
-    override suspend fun run(params: None): ForceUpdateResponse = forceUpdateRepository.getCheckForceUpdate().body()!!
+    override suspend fun run(params: None): ForceUpdateResponse = forceUpdateRepository.getCheckForceUpdate()
 
     override fun loading() {
         forceUpdateLiveData.postValue(Data(DataStatus.LOADING))

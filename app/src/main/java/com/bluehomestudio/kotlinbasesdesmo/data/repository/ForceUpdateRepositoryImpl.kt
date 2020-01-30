@@ -9,7 +9,7 @@ import retrofit2.Response
 
 class ForceUpdateRepositoryImpl : BaseRepository() , ForceUpdateRepository {
 
-    override suspend fun getCheckForceUpdate() : Response<ForceUpdateResponse> {
+    override suspend fun getCheckForceUpdate() : ForceUpdateResponse {
         val forceUpdateMock = ForceUpdateResponse(false , "not update yet")
         return network.mockedRequest(forceUpdateMock).create(ForceUpdateAPI::class.java).forceUpdate()
     }

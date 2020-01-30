@@ -8,6 +8,6 @@ import retrofit2.http.GET
 interface ForceUpdateAPI{
 
     @GET("/forceUpdate")
-    suspend fun  forceUpdate(): Response<ForceUpdateResponse>
+    suspend fun  forceUpdate(): ForceUpdateResponse
 
 }
